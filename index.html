@@ -1,0 +1,205 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="THE SQUARE - Smart Restaurant Menu with personalized taste-based food recommendations.">
+    <title>THE SQUARE | Smart Restaurant Menu</title>
+
+    <!-- CSS file -->
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+    <!-- Header -->
+    <header class="site-header">
+        <div class="brand">
+            <span class="brand-mark">S</span>
+            <div>
+                <h1>THE SQUARE</h1>
+                <p>SMART DINING EXPERIENCE</p>
+            </div>
+        </div>
+
+        <nav class="main-nav" aria-label="Main navigation">
+            <a href="#home">Home</a>
+            <a href="#menu">Our Menu</a>
+            <a href="#preferences">Preferences</a>
+        </nav>
+
+        <button class="cart-button" id="cartButton" type="button">
+            🛒 Cart <span id="cartCount">0</span>
+        </button>
+    </header>
+
+    <main>
+        <!-- Hero section -->
+        <section class="hero" id="home">
+            <div class="hero-content">
+                <p class="eyebrow">WELCOME TO THE SQUARE</p>
+                <h2>Your Taste.<br> Your Choice.</h2>
+                <p>
+                    Discover delicious dishes personalized to your taste,
+                    spice level and dietary preferences.
+                </p>
+                <a href="#menu" class="primary-button">Explore Menu</a>
+            </div>
+        </section>
+
+        <!-- Taste preferences -->
+        <section class="preferences section" id="preferences">
+            <div class="section-heading">
+                <p class="eyebrow">PERSONALIZE YOUR EXPERIENCE</p>
+                <h2>What are you craving?</h2>
+                <p>Select your favourite taste to discover matching dishes.</p>
+            </div>
+
+            <div class="taste-options" id="tasteOptions">
+                <button class="taste-chip" data-taste="Spicy">🌶️ Spicy</button>
+                <button class="taste-chip" data-taste="Juicy">🍗 Juicy</button>
+                <button class="taste-chip" data-taste="Hot & Comforting">🍲 Hot & Comforting</button>
+                <button class="taste-chip" data-taste="Creamy">🥣 Creamy</button>
+                <button class="taste-chip" data-taste="Crispy">🍟 Crispy</button>
+                <button class="taste-chip" data-taste="Tangy">🍋 Tangy</button>
+                <button class="taste-chip" data-taste="Smoky">🔥 Smoky</button>
+                <button class="taste-chip" data-taste="Sweet">🍰 Sweet</button>
+                <button class="taste-chip" data-taste="Light">🥗 Light</button>
+                <button class="taste-chip" data-taste="Cheesy">🧀 Cheesy</button>
+            </div>
+        </section>
+
+        <!-- Menu section -->
+        <section class="menu-section section" id="menu">
+            <div class="section-heading">
+                <p class="eyebrow">HANDPICKED FOR YOU</p>
+                <h2>Explore Our Menu</h2>
+                <p>Find your favourite dish and enjoy your dining experience.</p>
+            </div>
+
+<!-- TABLE SELECTION -->
+<section class="table-section section" id="tableSelection">
+    <div class="section-heading">
+        <p class="eyebrow">YOUR DINING SPACE</p>
+        <h2>Select Your Table</h2>
+        <p>Choose a table for your dining experience.</p>
+    </div>
+
+    <div class="table-selection-box">
+        <label for="tableNumber">Select Table Number:</label>
+
+        <select id="tableNumber" required>
+            <option value="">-- Choose a Table --</option>
+            <option value="1">Table 1</option>
+            <option value="2">Table 2</option>
+            <option value="3">Table 3</option>
+            <option value="4">Table 4</option>
+            <option value="5">Table 5</option>
+            <option value="6">Table 6</option>
+            <option value="7">Table 7</option>
+            <option value="8">Table 8</option>
+            <option value="9">Table 9</option>
+            <option value="10">Table 10</option>
+        </select>
+
+        <p id="selectedTableMessage">Please select your table.</p>
+    </div>
+</section>
+            <!-- Menu filters -->
+            <div class="menu-filters">
+                <input
+                    type="search"
+                    id="searchInput"
+                    placeholder="Search for a dish..."
+                    aria-label="Search dishes"
+                >
+
+                <select id="courseFilter" aria-label="Filter by course">
+                    <option value="All">All Courses</option>
+                    <option value="Breakfast">Breakfast</option>
+                    <option value="Starters">Starters</option>
+                    <option value="Main Course">Main Course</option>
+                    <option value="Rice & Breads">Rice & Breads</option>
+                    <option value="International">International</option>
+                    <option value="Sweet Ending">Sweet Ending</option>
+                    <option value="Round the Clock">Round the Clock</option>
+                </select>
+
+                <select id="dietFilter" aria-label="Filter by diet">
+                    <option value="All">All Diets</option>
+                    <option value="Veg">Vegetarian</option>
+                    <option value="Non-Veg">Non-Vegetarian</option>
+                </select>
+
+                <select id="spiceFilter" aria-label="Filter by spice level">
+                    <option value="All">All Spice Levels</option>
+                    <option value="Mild">Mild</option>
+                    <option value="Medium">Medium</option>
+                    <option value="Hot">Hot</option>
+                </select>
+            </div>
+
+            <!-- Dish cards are generated by JavaScript -->
+            <div class="menu-grid" id="menuGrid">
+                <p class="loading-message">Loading delicious dishes...</p>
+            </div>
+        </section>
+
+        <!-- Recommendations -->
+        <section class="recommendation section">
+            <div>
+                <p class="eyebrow">MADE FOR YOUR TASTE</p>
+                <h2>Good food. Great mood.</h2>
+                <p>
+                    Choose your preferences and let our smart menu help
+                    you discover your next favourite dish.
+                </p>
+            </div>
+        </section>
+    </main>
+
+    <!-- Shopping cart panel -->
+    <aside class="cart-panel" id="cartPanel" aria-label="Shopping cart" hidden>
+        <div class="cart-header">
+            <h2>Your Cart</h2>
+            <button id="closeCart" type="button" aria-label="Close cart">✕</button>
+        </div>
+
+        <div id="cartItems">
+            <p>Your cart is empty.</p>
+        </div>
+
+        <div class="cart-footer">
+            <p>Total: <strong id="cartTotal">₹0</strong></p>
+            <button class="primary-button" id="checkoutButton" type="button">
+                Proceed to Checkout
+            </button>
+        </div>
+    </aside>
+
+    <!-- Checkout modal -->
+    <dialog id="checkoutDialog">
+        <form method="dialog" id="checkoutForm">
+            <h2>Order Summary</h2>
+            <p id="checkoutSummary">Your order details will appear here.</p>
+            <p class="demo-notice">
+                Demo checkout only. No real payment will be collected.
+            </p>
+            <div class="dialog-actions">
+                <button type="button" id="cancelCheckout">Cancel</button>
+                <button type="submit" class="primary-button">Confirm Demo Order</button>
+            </div>
+        </form>
+    </dialog>
+
+    <!-- Footer -->
+    <footer class="site-footer">
+        <h2>THE SQUARE</h2>
+        <p>Smart Restaurant Menu – Personalized Taste-Based Digital Ordering System</p>
+        <p>&copy; 2026 THE SQUARE. All rights reserved.</p>
+    </footer>
+
+    <!-- JavaScript file -->
+    <script src="script.js"></script>
+</body>
+</html>
